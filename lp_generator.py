@@ -3,7 +3,7 @@ from pulp import *
 def get_index_string(a: int, b: int = None):
     if b == None:
         return f"{str(a)}"
-    return f"{str(a)},{str(b)}"
+    return f"{str(a)}-{str(b)}"
 
 class FacilitiesProblem:
     n: int
@@ -56,27 +56,29 @@ class FacilitiesProblem:
     def create_minimize_pulp_problem(self) -> LpProblem:
         prob = LpProblem("Facilities", LpMinimize)
 
-        X = [get_index_string(i, j) for i in range(self.n) for j in range(self.m)]
-        Y = [get_index_string(i) for i in range(self.n)]
-        x_vars = LpVariable.dicts("x", X, lowBound=0, upBound=1)
-        y_vars = LpVariable.dicts("y", Y, lowBound=0, upBound=1, cat="Integer")
+        x_vars = {}
+        y_vars = {}
+
+        for i in range(0, self.n):
+            y_vars[get_index_string(i)] = LpVariable(f'y_{get_index_string(i)}', 0, 1, cat='Integer')
+            for j in range(0, self.m):
+                x_vars[get_index_string(i, j)] = LpVariable(f'x_{get_index_string(i, j)}', 0, 1)
+                # print(x_vars[get_index_string(i, j)].name, x_vars[get_index_string(i, j)])
 
         prob += (
             lpSum([self.f[i] * y_vars[get_index_string(i)] for i in range(self.n)]) +
-            lpSum([self.c[j][i] * x_vars[get_index_string(i, j)] for i in range(self.n) for j in range(self.m)]),
+            lpSum([(self.c)[j][i] * x_vars[get_index_string(i, j)] for i in range(self.n) for j in range(self.m)]),
             "Objective Func",
         )
 
         for j in range(self.m):
             prob += (
-                lpSum([x_vars[get_index_string(i, j)] for i in range(self.n)]) <= 1,
+                lpSum([x_vars[get_index_string(i, j)] for i in range(self.n)]) == 1,
                 f"Demanda 1.{j}",
             )
 
         for i in range(self.n):
             prob += (
-                # lpSum([x_vars[get_index_string(i, j)] for i in range(self.n)]) <= 1,
-
                 lpSum([(self.d[j] * x_vars[get_index_string(i, j)]) for j in range(self.m)]) <= self.cap[i] * y_vars[get_index_string(i)],
                 f"Demanda 2.{i}"
             )
@@ -94,5 +96,5 @@ prob = instance.create_minimize_pulp_problem()
 prob.solve(solver)
 print("Status:", LpStatus[prob.status])
 for v in prob.variables():
-    print(v.name, "=", v.varValue)
+    print(v.name, "=", str(v.varValue))
 print("Minimum cost found = ", value(prob.objective))
