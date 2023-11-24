@@ -79,14 +79,14 @@ class FacilitiesProblem:
         for i in range(self.n):
             prob += (
                 lpSum([(self.d[j] * x_vars[get_index_string(i, j)]) for j in range(self.m)]) <= self.cap[i],
-                f"Demanda 2.{i}"
+                f"Demanda 2.{i}",
             )
 
         for i in range(self.n):
             for j in range(self.m):
                 prob += (
                     x_vars[get_index_string(i, j)] <= y_vars[get_index_string(i)],
-                    f"Demanda 3.{i}"
+                    f"Demanda 3.{i}_{j}"
                 )
 
         return prob

@@ -87,7 +87,7 @@ class FacilitiesProblem:
 
 
 
-solver = getSolver('GUROBI_CMD')          
+solver = getSolver('PULP_CBC_CMD')          
 
 instance = FacilitiesProblem()
 instance.read_problem('../instancias/Adaptada-wlp01.txt')
