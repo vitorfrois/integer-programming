@@ -90,7 +90,7 @@ class FacilitiesProblem:
 solver = getSolver('GUROBI_CMD')          
 
 instance = FacilitiesProblem()
-instance.read_problem('instancias/Adaptada-wlp01.txt')
+instance.read_problem('../instancias/Adaptada-wlp01.txt')
 prob = instance.create_minimize_pulp_problem()
 
 prob.solve(solver)
