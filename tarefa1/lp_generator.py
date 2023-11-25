@@ -87,10 +87,10 @@ class FacilitiesProblem:
 
 
 
-solver = getSolver('SCIP_CMD', timeLimit=300)          
+solver = getSolver('PULP_CBC_CMD')          
 
 instance = FacilitiesProblem()
-instance.read_problem('instancias/Adaptada-wlp01.txt')
+instance.read_problem('../instancias/Adaptada-wlp01.txt')
 prob = instance.create_minimize_pulp_problem()
 
 prob.solve(solver)
@@ -98,4 +98,3 @@ print("Status:", LpStatus[prob.status])
 for v in prob.variables():
     print(v.name, "=", str(v.varValue))
 print("Minimum cost found = ", value(prob.objective))
-

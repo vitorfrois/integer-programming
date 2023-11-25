@@ -3,7 +3,7 @@
 - [@baqueta]()
 - [@thais]()
 - [@dudu]()
-- [@sampai]()
+- [@sampai](https://github.com/GusSampaio)
 
 ### Descrição
 O problema de localização de facilidades é um problema clássico de otimização que
