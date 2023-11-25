@@ -87,7 +87,7 @@ class FacilitiesProblem:
 
 
 
-solver = getSolver('GUROBI_CMD')          
+solver = getSolver('SCIP_CMD', timeLimit=300)          
 
 instance = FacilitiesProblem()
 instance.read_problem('instancias/Adaptada-wlp01.txt')
@@ -98,3 +98,4 @@ print("Status:", LpStatus[prob.status])
 for v in prob.variables():
     print(v.name, "=", str(v.varValue))
 print("Minimum cost found = ", value(prob.objective))
+
