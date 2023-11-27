@@ -1,3 +1,6 @@
 pulp
 matplotlib
 numpy
+orloge
+tqdm
+time
