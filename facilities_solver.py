@@ -116,7 +116,7 @@ class FacilitiesProblem:
         y_vars = {}
 
         for i in range(0, self.n):
-            y_vars[get_index_string(i)] = LpVariable(f'y_{get_index_string(i)}', 0, 1, cat='Integer')
+            y_vars[get_index_string(i)] = LpVariable(f'y_{get_index_string(i)}', 0, 1)
             for j in range(0, self.m):
                 x_vars[get_index_string(i, j)] = LpVariable(f'x_{get_index_string(i, j)}', 0, 1)
 

@@ -1,32 +1,89 @@
-SME0110 - Programação Matemática
+### SME0110 - Programação Matemática
 # Trabalho de Otimização Inteira
 
 Alunos:  
 Eduardo Henrique Porto Silva - 
+
 Gustavo Sampaio Lima - 12623992  
+
 Pedro Rossi Silva Rodrigues - 11871775
+
 Vitor Amorim Fróis - 12543440
+
 Thaís Ribeiro Lauriano - 12542518 
 
 ## Tarefa 1
+Para a tarefa 1 utilizamos a linguagem Python em conjunto a biblioteca Pulp. Todo o código para a resolução dos problemas está no arquivo `facilities_solver.py`. Com a ajuda de classes conseguimos ler o arquivo de instâncias, e armazenar o conteúdo em variáveis com a função abaixo:
+``` python
+def read_problem_instance(self, filename: str):
+```
+e logo em seguida escrevemos o problema de forma pythonica com a classe `pulp.LpProblem()`. Abaixo estão listados os principais eventos da função
+
+
+Criando as variáveis de decisão $x$ e $y$.
+```python
+def create_minimize_pulp_problem_1(self) -> LpProblem:
+  prob = LpProblem("Facilities", LpMinimize)
+
+  x_vars = {}
+  y_vars = {}
+
+  for i in range(0, self.n):
+      y_vars[get_index_string(i)] = LpVariable(f'y_{get_index_string(i)}', 0, 1, cat='Integer')
+      for j in range(0, self.m):
+          x_vars[get_index_string(i, j)] = LpVariable(f'x_{get_index_string(i, j)}', 0, 1)
+```
+
+Adicionando a função objetivo ao nosso problema.
+```python
+prob += (
+  lpSum([self.f[i] * y_vars[get_index_string(i)] for i in range(self.n)]) +
+  lpSum([(self.c)[j][i] * x_vars[get_index_string(i, j)] for i in range(self.n) for j in range(self.m)]),
+  "Objective Func",
+)
+```
+
+Por fim adicionamos as duas restrições descritas no trabalho.
+```python
+for j in range(self.m):
+  prob += (
+      lpSum([x_vars[get_index_string(i, j)] for i in range(self.n)]) == 1,
+      f"Demanda 1.{j}",
+  )
+
+for i in range(self.n):
+  prob += (
+      lpSum([(self.d[j] * x_vars[get_index_string(i, j)]) for j in range(self.m)]) <= self.cap[i] * y_vars[get_index_string(i)],
+      f"Demanda 2.{i}"
+  )
+```
 
 ## Tarefa 2
+Para a segunda tarefa, vamos utilizar os mesmos valores da instância. Por conta da pequena diferença nas restrições, vamos criar uma nova função, chamada `create_minimize_pulp_problem_2()`, explicada abaixo:
 
-## Tarefa 3
+Criamos o problema `LpProblem` como na primeira tarefa. Dessa vez vamos garantir que $y \in [0, 1]$ ao omitir `cat='Integer'` nos parâmetros da função `LpVariable()`.
+```python
+def create_minimize_pulp_problem_2(self) -> LpProblem:
+  prob = LpProblem("Facilities", LpMinimize)
 
-## Tarefa 4SME0110 - Programação Matemática
-# Trabalho de Otimização Inteira
+  x_vars = {}
+  y_vars = {}
 
-Alunos:  
-Eduardo Henrique Porto Silva  
-Gustavo Sampaio Lima - 12623992  
-Pedro Rossi da Silva Rodrigues  
-Vitor Amorim Fróis  
-Thaís Ribeiro Lauriano - 12542518
+  for i in range(0, self.n):
+    y_vars[get_index_string(i)] = LpVariable(f'y_{get_index_string(i)}',0,1)
+      for j in range(0, self.m):
+        x_vars[get_index_string(i, j)] = LpVariable(f'x_{get_index_string(i, j)}', 0, 1)
+```
 
-## Tarefa 1
-
-## Tarefa 2
+E adicionamos uma restrição extra
+```python
+for i in range(self.n):
+  for j in range(self.m):
+    prob += (
+      x_vars[get_index_string(i, j)] <= y_vars[get_index_string(i)],
+      f"Demanda 3.{i}_{j}"
+    )
+```
 
 ## Tarefa 3
 
@@ -64,16 +121,16 @@ $ min\ \Sigma_{i=1}^n f_i \cdot y_i + \Sigma_{i=1}^n\Sigma_{j=1}^m c_{ij} \cdot 
 
 sujeito à:
 
->>  $\Sigma_{i=1}^n x_{ij} = 1 \ \ j = 1,..., m\ $  (2) 
+$\Sigma_{i=1}^n x_{ij} = 1 \ \ j = 1,..., m\ $  (2) 
 
->>  $\Sigma_{j=1}^m d_j \cdot x_{ij} \le Cap_i \ \ i = 1, ..., n\ $ 
+$\Sigma_{j=1}^m d_j \cdot x_{ij} \le Cap_i \ \ i = 1, ..., n\ $ 
   (3) 
 
->>  $x_{ij} \le y_i \ \ i = 1, ..., n; \  j = 1,..., m\ $(4)
+$x_{ij} \le y_i \ \ i = 1, ..., n; \  j = 1,..., m\ $(4)
 
->> $y_i \in \{0,1\}\ $(5)
+$y_i \in \{0,1\}\ $(5)
 
->>  $0 \le x_{ij} \le 1 \ $(6)
+$0 \le x_{ij} \le 1 \ $(6)
 
 A função objetivo (1) tem como finalidade minimizar a soma dos custos fixos de cada AT aberta mais a soma dos custos de transporte das assistências técnicas para as cidades atendidas. 
 A restrição (2) certifica que todas as cidades atendidas tiveram suas demandas supridas.
@@ -86,10 +143,6 @@ eletrodomésticos](https://aprepro.org.br/conbrepro/2019/anais/arquivos/10192019
 
 
 ## Tarefa 6 - Toy Problem
-
-
-
-## Tarefa 5
 
 A aplicação escolhida para o problema de localização de facilidades foi a determinação de assistências técnicas de uma empresa de eletrodomésticos.  
 Como esta aplicação se trata de um problema
@@ -123,15 +176,16 @@ $q_i$ = capacidade utilizada na assistência i
 
 O modelo matemático é o seguinte:  
 $ min\ \Sigma_{i=1}^{p}$
+$$
 𝑀𝑖𝑛∑𝑓𝑖
 𝑖∈𝐼
 𝑦𝑖 + ∑𝑉𝑖𝑞𝑖
 𝑖∈𝐼
-+ ∑∑𝑐𝑖𝑗
++ ∑∑𝑐𝑖𝑗 \\
 𝑗∈𝐽
 𝐷𝑗 𝑥𝑖𝑗
-𝑖∈𝐼
-(1)
+𝑖∈𝐼 
+(1) \\
 𝑆𝑢𝑗𝑒𝑖𝑡𝑜 à:
 𝑞𝑖 ≤ 𝑄𝑀𝑎𝑥𝑖
 (2)
@@ -154,6 +208,7 @@ $ min\ \Sigma_{i=1}^{p}$
 , 𝑦𝑖 ∈ 𝐵
 |𝐼|
 , 𝑞𝑖 ∈ 𝑅 (7)
+$$
 A função objetivo (1) tem como finalidade minimizar os custos fixos dos centos de
 distribuições, os custos relacionados às atribuições dos clientes até as facilidades e os custos
 variáveis de cada CD. A restrição (2) garante que a capacidade utilizada no CD i é menor que
@@ -169,6 +224,3 @@ assistências técnicas devem ser transformadas em CDs.
 Referência: [Avaliação de cenários para o problema de localização de facilidades
 determinando centros de distribuição de uma empresa de
 eletrodomésticos](https://aprepro.org.br/conbrepro/2019/anais/arquivos/10192019_191014_5dab8eee2b4dc.pdf)
-
-
-## Tarefa 6
