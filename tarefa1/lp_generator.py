@@ -1,4 +1,5 @@
 from pulp import *
+from time import time
 
 def get_index_string(a: int, b: int = None):
     if b == None:
@@ -85,16 +86,23 @@ class FacilitiesProblem:
 
         return prob
 
-
-
-solver = getSolver('PULP_CBC_CMD')          
+solver = getSolver('GUROBI_CMD')          
 
 instance = FacilitiesProblem()
-instance.read_problem('../instancias/Adaptada-wlp01.txt')
+instance.read_problem('../instancias/Adaptada-wlp02.txt')
 prob = instance.create_minimize_pulp_problem()
+times = []
 
-prob.solve(solver)
-print("Status:", LpStatus[prob.status])
-for v in prob.variables():
-    print(v.name, "=", str(v.varValue))
-print("Minimum cost found = ", value(prob.objective))
+for i in range(10):
+    start_time = time()
+    prob.solve(solver)
+    end_time = time()
+    #print("Status:", LpStatus[prob.status])
+    #for v in prob.variables():
+     #   print(v.name, "=", str(v.varValue))
+    print("Minimum cost found = ", value(prob.objective))
+    ac_time = end_time - start_time
+    print("Time = ", ac_time)
+    times.append(ac_time)
+
+print("Average time = ", sum(times)/len(times))

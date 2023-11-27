@@ -1,4 +1,5 @@
 from pulp import *
+from time import time
 
 def get_index_string(a: int, b: int = None):
     if b == None:
@@ -54,13 +55,14 @@ class FacilitiesProblem:
             current_line_number = i
 
     def create_minimize_pulp_problem(self) -> LpProblem:
+        
         prob = LpProblem("Facilities", LpMinimize)
 
         x_vars = {}
         y_vars = {}
 
         for i in range(0, self.n):
-            y_vars[get_index_string(i)] = LpVariable(f'y_{get_index_string(i)}', 0, 1, cat='Integer')
+            y_vars[get_index_string(i)] = LpVariable(f'y_{get_index_string(i)}', 0, 1)
             for j in range(0, self.m):
                 x_vars[get_index_string(i, j)] = LpVariable(f'x_{get_index_string(i, j)}', 0, 1)
 
@@ -98,9 +100,16 @@ solver = getSolver('GUROBI_CMD')
 instance = FacilitiesProblem()
 instance.read_problem('../instancias/Adaptada-wlp01.txt')
 prob = instance.create_minimize_pulp_problem()
+times = []
+for i in range(1):   
+    start_time = time()
+    prob.solve(solver)
+    end_time = time()
+    #print("Status:", LpStatus[prob.status])
+    #for v in prob.variables():
+    #    print(v.name, "=", str(v.varValue))
+    print("Custo mínimo encontrado = ", value(prob.objective))
+    ac_time = end_time - start_time
+    times.append(ac_time)
 
-prob.solve(solver)
-print("Status:", LpStatus[prob.status])
-for v in prob.variables():
-    print(v.name, "=", str(v.varValue))
-print("Minimum cost found = ", value(prob.objective))
+print("Tempo de execução = ", sum(times)/len(times))
