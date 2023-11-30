@@ -156,7 +156,7 @@ def main():
     log_path = 'log.txt'
 
     try:
-        solver = getSolver(args.solver, timeLimit=args.timelimit, logPath=log_path, msg=True)
+        solver = getSolver(args.solver, timeLimit=args.timelimit, msg=True)
     except KeyError as e:
         print(e) 
 
