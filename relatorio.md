@@ -85,6 +85,25 @@ for i in range(self.n):
     )
 ```
 
+Além disso, o trecho de código que especifica a criação das variáveis em :
+```python
+def create_minimize_pulp_problem_1(self) -> LpProblem:
+  prob = LpProblem("Facilities", LpMinimize)
+
+  x_vars = {}
+  y_vars = {}
+
+  for i in range(0, self.n):
+      y_vars[get_index_string(i)] = LpVariable(f'y_{get_index_string(i)}', 0, 1, cat='Integer')
+      for j in range(0, self.m):
+          x_vars[get_index_string(i, j)] = LpVariable(f'x_{get_index_string(i, j)}', 0, 1)
+```
+
+foi alterado retirando a necessidade de que Yi assuma valores inteiros, resultando na alteração pela linha a seguir:
+```python
+y_vars[get_index_string(i)] = LpVariable(f'y_{get_index_string(i)}', 0, 1)
+```
+
 ## Tarefa 3
 
 ## Tarefa 4
