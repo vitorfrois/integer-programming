@@ -179,7 +179,7 @@ A quantidade de facilidades abertas é representada por p, e os parâmetros do m
 | $i$     | índices de clientes (cidades)|
 |$j$   | índices de assistências técnicas (AT)|
 | $f_i$     | custo fixo da $AT_i$|
-|$V_i$   | cuto variável de manuseio de itens na $AT_i$|
+|$V_i$   | custo variável de manuseio de itens na $AT_i$|
 | $c_ij$     | custo de transporte da $AT_i$ para a cidade $j$|
 |$D_j$   | demanda da cidade $j$|
 | $Q_i$     | capacidade da $AT_j$|
