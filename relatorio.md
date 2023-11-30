@@ -211,14 +211,21 @@ $$
 $$
 A função objetivo (1) tem como finalidade minimizar os custos fixos dos centos de
 distribuições, os custos relacionados às atribuições dos clientes até as facilidades e os custos
-variáveis de cada CD. A restrição (2) garante que a capacidade utilizada no CD i é menor que
-a capacidade total do CD. A restrição (3) garante que cada cliente j é designado a apenas 1
-facilidade. E a restrição (4) garante que apenas p facilidades serão escolhidas. A restrição (5)
-informa a capacidade do CD e a (6) verifica se o CD i está sendo utilizado. A restrição (7) indica
+variáveis de cada CD.
+A restrição (2) garante que a capacidade utilizada no CD i é menor que
+a capacidade total do CD.
+A restrição (3) garante que cada cliente j é designado a apenas 1
+facilidade.
+E a restrição (4) garante que apenas p facilidades serão escolhidas.
+A restrição (5) informa a capacidade do CD.
+A restrição (6) verifica se o CD i está sendo utilizado. A restrição (7) indica
 os tipos de variáveis.
+
 O modelo deve ser resolvido três vezes, levando em consideração as diferentes quantidades
 de CDs desejados pela empresa para se investir, ou seja, p poderá assumir os valores 3, 4 ou
-5. Por fim, obtêm-se quais cidades devem ter seus produtos devolvidos para cada CD e quais
+5. 
+
+Por fim, obtêm-se quais cidades devem ter seus produtos devolvidos para cada CD e quais
 assistências técnicas devem ser transformadas em CDs.
 
 Referência: [Avaliação de cenários para o problema de localização de facilidades
