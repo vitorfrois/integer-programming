@@ -194,5 +194,4 @@ Sendo assim, rodando o código utilizando SCIP obtemos os seguintes resultados:
 
 Instância | Primal | Dual | Gap | Status | Tempo (s)
 | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: |
-| Toy Problem | +1.69833333333333e+03 | +1.69833333333333e+03 | 0.00 | Solved | 0.038
-
+| Toy Problem | 1.831666666667e+03 | 1.831666666667e+03 | 0.00 | Solved | 0.0193
