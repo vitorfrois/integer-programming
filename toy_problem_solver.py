@@ -84,14 +84,13 @@ class FacilitiesProblem:
         y_vars = {}
 
         for i in range(0, self.n):
-            y_vars[get_index_string(i)] = LpVariable(f'y_{get_index_string(i)}', 0, 1)
+            y_vars[get_index_string(i)] = LpVariable(f'y_{get_index_string(i)}', 0, 1, cat='integer')
             for j in range(0, self.m):
                 x_vars[get_index_string(i, j)] = LpVariable(f'x_{get_index_string(i, j)}', 0, 1)
-                # print(x_vars[get_index_string(i, j)].name, x_vars[get_index_string(i, j)])
 
         prob += (
             lpSum([self.f[i] * y_vars[get_index_string(i)] for i in range(self.n)]) +
-            lpSum([(self.c)[j][i] * x_vars[get_index_string(i, j)] for i in range(self.n) for j in range(self.m)]),
+            lpSum([(self.c)[i][j] * x_vars[get_index_string(i, j)] for i in range(self.n) for j in range(self.m)]),
             "Objective Func",
         )
 
@@ -106,44 +105,6 @@ class FacilitiesProblem:
                 lpSum([(self.d[j] * x_vars[get_index_string(i, j)]) for j in range(self.m)]) <= self.cap[i] * y_vars[get_index_string(i)],
                 f"Demanda 2.{i}"
             )
-
-        return prob
-
-    def create_minimize_pulp_problem_2(self) -> LpProblem:
-        prob = LpProblem("Facilities", LpMinimize)
-
-        x_vars = {}
-        y_vars = {}
-
-        for i in range(0, self.n):
-            y_vars[get_index_string(i)] = LpVariable(f'y_{get_index_string(i)}', 0, 1)
-            for j in range(0, self.m):
-                x_vars[get_index_string(i, j)] = LpVariable(f'x_{get_index_string(i, j)}', 0, 1)
-
-        prob += (
-            lpSum([self.f[i] * y_vars[get_index_string(i)] for i in range(self.n)]) +
-            lpSum([(self.c)[j][i] * x_vars[get_index_string(i, j)] for i in range(self.n) for j in range(self.m)]),
-            "Objective Func",
-        )
-
-        for j in range(self.m):
-            prob += (
-                lpSum([x_vars[get_index_string(i, j)] for i in range(self.n)]) == 1,
-                f"Demanda 1.{j}",
-            )
-
-        for i in range(self.n):
-            prob += (
-                lpSum([(self.d[j] * x_vars[get_index_string(i, j)]) for j in range(self.m)]) <= self.cap[i],
-                f"Demanda 2.{i}",
-            )
-
-        for i in range(self.n):
-            for j in range(self.m):
-                prob += (
-                    x_vars[get_index_string(i, j)] <= y_vars[get_index_string(i)],
-                    f"Demanda 3.{i}_{j}"
-                )
 
         return prob
 
@@ -165,10 +126,8 @@ def main():
         instance.read_problem_instance(f'{args.folder}{file}')
         if args.problem == '1':
             prob = instance.create_minimize_pulp_problem_1()
-        elif args.problem == '2':
-            prob = instance.create_minimize_pulp_problem_2()
         else:
-            print('Please select a problem (1, 2) to solve')
+            print('ERROR: Failed to create')
             sys.exit(1)
 
         start = t.time()
@@ -194,6 +153,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-

@@ -135,12 +135,11 @@ seguintes:
 $y_i$ = 1 se a assistência i for aberta e 0 caso contrário  
 $x_{ij}$ = porcentagem da demanda da cidade j qu a assistência i atende
 
-$ min\ \Sigma_{i=1}^n f_i \cdot y_i + \Sigma_{i=1}^n\Sigma_{j=1}^m c_{ij} \cdot x_{ij}\ $ (1)
-
+$min\ \Sigma_{i=1}^n f_i \cdot y_i + \Sigma_{i=1}^n\Sigma_{j=1}^m c_{ij} \cdot x_{ij}\$ (1)
 
 sujeito à:
 
-$\Sigma_{i=1}^n x_{ij} = 1 \ \ j = 1,..., m\ $  (2) 
+$\Sigma_{i=1}^n x_{ij} = 1 \ \ j = 1,..., m\$  (2) 
 
 $\Sigma_{j=1}^m d_j \cdot x_{ij} \le Cap_i \cdot y_i \ \ i = 1, ..., n\ $ 
   (3) 
