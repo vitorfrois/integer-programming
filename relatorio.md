@@ -135,8 +135,7 @@ seguintes:
 $y_i$ = 1 se a assistência i for aberta e 0 caso contrário  
 $x_{ij}$ = 1 se a assistência i atender a cidade j e 0 caso contrário
 
-$ min\ \Sigma_{i=1}^n f_i \cdot y_i + \Sigma_{i=1}^n\Sigma_{j=1}^m c_{ij} \cdot x_{ij}\ $ (1)
-
+$min\ \Sigma_{i=1}^n f_i \cdot y_i + \Sigma_{i=1}^n\Sigma_{j=1}^m c_{ij} \cdot x_{ij}\$ (1)
 
 sujeito à:
 
