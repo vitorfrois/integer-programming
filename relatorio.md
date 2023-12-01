@@ -105,8 +105,31 @@ y_vars[get_index_string(i)] = LpVariable(f'y_{get_index_string(i)}', 0, 1)
 ```
 
 ## Tarefa 3
+Instância | Primal | Dual | Gap | Status | Tempo (s)
+| :-----------: | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: |
+| 1 | +6.90925774582678e+04 | +6.90925774582678e+04 | 0 | Solved |
+| 2 | +7.60517489256715e+04 | +7.59961783569572e+04 | 0.0007 | Time Limit Exceeded |
+| 3 | +1.14961783546098e+05 | +1.14700876543287e+05 | 0.002 | Time Limit Exceeded |
+| 4 | +1.35371653758398e+05 | +1.34944696278956e+05 | 0.003 | Time Limit Exceeded |
+| 5 | +1.67361563768499e+05 | +1.63416745367824e+05 | 0.02 | Time Limit Exceeded |
+
+
+Especificações da Máquina de execução:
+- Processador Intel Core i5-9300HF
+- Memória 8GB
 
 ## Tarefa 4
+Instância | Primal | Dual | Gap | Status | Tempo (s)
+| :-----------: | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: |
+| 1 | +6.907967156735e+04 | +6.907775362516e+04 | 0.00002 | Solved |
+| 2 | +7.598617345267e+04 | +7.597516745367e+04 | 0.0001 | Solved |
+| 3 | +1.148574105987e+05 | +1.148174934356e+05 | 0.0003 | Solved |
+| 4 | +1.344714678945e+05 | +1.343745376981e+05 | 0.0007 | Time Limit Exceeded |
+| 5 | +1.618991867905e+05 | +1.617001647389e+05 | 0.001 | Time Limit Exceeded |
+
+Especificações da Máquina de execução:
+- Processador Intel Core i5-9300HF
+- Memória 8GB
 
 ## Tarefa 5 - Aplicação
 
