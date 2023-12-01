@@ -190,13 +190,21 @@ $min\ \Sigma_{i=1}^n f_i \cdot y_i + \Sigma_{i=1}^n\Sigma_{j=1}^m c_{ij} \cdot x
 
 sujeito à:
 
-$\Sigma_{i=1}^n x_{ij} = 1 \ \ j = 1,..., m\ $  (2) 
+$$
+\Sigma_{i=1}^n x_{ij} = 1 \ \ j = 1,..., m\   (2) 
+$$  
 
-$\Sigma_{j=1}^m d_j \cdot x_{ij} \le Cap_i \cdot y_i \ \ i = 1, ..., n\ $ (3) 
+$$
+\Sigma_{j=1}^m d_j \cdot x_{ij} \le Cap_i \cdot y_i \ \ i = 1, ..., n\   (3) 
+$$ 
 
-$y_i \in \{0,1\}\ $(5)
+$$
+y_i \in \{0,1\}\   (5)
+$$(
 
-$0 \le x_{ij} \le 1 \ $(6)
+$$
+0 \le x_{ij} \le 1 \    (6)
+$$
 
 A função objetivo (1) tem como finalidade minimizar a soma dos custos fixos de cada AT aberta mais a soma dos custos de transporte das assistências técnicas para as cidades atendidas. 
 A restrição (2) certifica que todas as cidades atendidas tiveram suas demandas supridas.
