@@ -2,7 +2,7 @@
 # Trabalho de Otimização Inteira
 
 Alunos:  
-Eduardo Henrique Porto Silva - 
+Eduardo Henrique Porto Silva - 11796656
 
 Gustavo Sampaio Lima - 12623992  
 
@@ -165,3 +165,5 @@ O arquivo que representa os valores de cada variável está presente em toy_prob
 A partir dos dados criados, codificamos o arquivo toy_problem_solver.py que basicamente é uma descrição semelhante ao efetuado na tarefa 1 do presente projeto.
 
 Sendo assim, rodando o código utilizando SCIP obtemos os seguintes resultados:
+
+
