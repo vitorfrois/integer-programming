@@ -160,36 +160,8 @@ eletrodomésticos](https://aprepro.org.br/conbrepro/2019/anais/arquivos/10192019
 
 ## Tarefa 6 - Toy Problem
 
-Para o toy problem, vamos utilizar o modelo matemático descrito na tarefa anterior para decidir em quais cidades do entorno de São Carlos deve ser construída uma assistência técnica, em que a demanda de cada cidade é representada pelo seu número de habitantes em milhares (estimando que no máximo 1/1000 da população precisa levar um eletrodoméstico na assistência ao mesmo tempo). Os custos de transporte representam a distância em km entre as cidades, e os demais dados foram inventados.
+A descrição do modelo está descrito na tarefa 5.
+O arquivo que representa os valores de cada variável está presente em toy_problem_instance/toy_problem.txt .
+A partir dos dados criados, codificamos o arquivo toy_problem_solver.py que basicamente é uma descrição semelhante ao efetuado na tarefa 1 do presente projeto.
 
-Todos os dados necessários podem ser encontrados no arquivo toy-problem.txt nas tabelas abaixo:
-Consideraremos 26 cidades e 26 possíveis assistências técnicas (1 por cidade)
-| índice ($i$/$i$) | Nome da cidade | Demanda ($d_j$) | Custo fixo ($f_i$) | Capacidade ($Cap_i$) |
-| :-----------: | :-----------: | :-----------: | :-----------: | :-----------: |
-| 1 | São Carlos | 256 | 100 | 330 |
-| 2 | Água Vermelha | 4 | 20 | 20 |
-| 3 | Itirapina | 18 | 30 | 50 |
-| 4 | Analândia | 5 | 20 | 30 |
-| 5 | Brotas | 25 | 40 | 80 | 
-| 6 | Ribeirão Bonito | 13 | 20 | 40 |
-| 7 | Boa Esperança do Sul | 15 | 30 | 50 |
-| 8 | Dobrada | 8 | 20 | 40 |
-| 9 | Matão | 79 | 40 | 120 |
-| 10 | Santa Ernestina | 6 | 25 | 25 |
-| 11 | Motuca | 5 | 20 | 20 |
-| 12 | Guatapará | 8 | 25 | 30 |
-| 13 | Rincão | 11 | 25 | 35 |
-| 14 | Santa Lúcia | 9 | 20 | 28 |
-| 15 | Américo Brasiliense | 41 |  | 70 |
-| 16 | Araraquara | 238 | 90 | 290 |
-| 17 | Ibaté | 35 |  | 60 |
-| 18 | Santa Eudóxia | 3 | 20 | 15 |
-| 19 | São Simão | 15 | 30 | 45 |
-| 20 | Santa Rita do Passa Quatro | 28 |  | 55 |
-| 21 | Porto Ferreira | 57 | 35 | 75 |
-| 22 | Descalvado | 34 | 30 | 60 |
-| 23 | Dourado | 9 | 20 | 20 |
-| 24 | Pirassununga | 77 | 50 | 100 |
-| 25 | Leme | 104 | 60 | 130 |
-| 26 | Rio Claro | 208 | 80 | 245 |
-
+Sendo assim, rodando o código utilizando SCIP obtemos os seguintes resultados:
