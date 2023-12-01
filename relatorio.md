@@ -104,7 +104,14 @@ foi alterado retirando a necessidade de que Yi assuma valores inteiros, resultan
 y_vars[get_index_string(i)] = LpVariable(f'y_{get_index_string(i)}', 0, 1)
 ```
 
+### Especificações da Máquina
+Para as próximas tarefas vamos rodar as instâncias do problema utilizando máquina local,
+que possui as seguintes especificações:
+- Processador Intel Core i5-9300HF
+- Memória 8GB
+
 ## Tarefa 3
+Resolveremos as instâncias utilizando o solver SCIP
 Instância | Primal | Dual | Gap | Status | Tempo (s)
 | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: |
 | 1 | +6.90925774582678e+04 | +6.90925774582678e+04 | 0 | Solved | 256.0
@@ -114,11 +121,8 @@ Instância | Primal | Dual | Gap | Status | Tempo (s)
 | 5 | +1.67361563768499e+05 | +1.63416745367824e+05 | 0.02 | Time Limit Exceeded | 347.9
 
 
-Especificações da Máquina de execução:
-- Processador Intel Core i5-9300HF
-- Memória 8GB
-
 ## Tarefa 4
+Resolveremos as instâncias utilizando o solver Gurobi
 Instância | Primal | Dual | Gap | Status | Tempo (s)
 | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: |
 | 1 | +6.907967156735e+04 | +6.907775362516e+04 | 0.00002 | Solved | 12.0
@@ -129,8 +133,7 @@ Instância | Primal | Dual | Gap | Status | Tempo (s)
 
 
 Especificações da Máquina de execução:
-- Processador Intel Core i5-9300HF
-- Memória 8GB
+
 
 ## Tarefa 5 - Aplicação
 
@@ -159,11 +162,11 @@ seguintes:
 $y_i$ = 1 se a assistência i for aberta e 0 caso contrário  
 $x_{ij}$ = porcentagem da demanda da cidade j qu a assistência i atende
 
-$min\ \Sigma_{i=1}^n f_i \cdot y_i + \Sigma_{i=1}^n\Sigma_{j=1}^m c_{ij} \cdot x_{ij}\$ (1)
+$min\ \Sigma_{i=1}^n f_i \cdot y_i + \Sigma_{i=1}^n\Sigma_{j=1}^m c_{ij} \cdot x_{ij}$ (1)
 
 sujeito à:
 
-$\Sigma_{i=1}^n x_{ij} = 1 \ \ j = 1,..., m\$  (2) 
+$\Sigma_{i=1}^n x_{ij} = 1 \ \ j = 1,..., m\ $  (2) 
 
 $\Sigma_{j=1}^m d_j \cdot x_{ij} \le Cap_i \cdot y_i \ \ i = 1, ..., n\ $ 
   (3) 
@@ -185,9 +188,12 @@ eletrodomésticos](https://aprepro.org.br/conbrepro/2019/anais/arquivos/10192019
 ## Tarefa 6 - Toy Problem
 
 A descrição do modelo está descrito na tarefa 5.
-O arquivo que representa os valores de cada variável está presente em toy_problem_instance/toy_problem.txt .
-A partir dos dados criados, codificamos o arquivo toy_problem_solver.py que basicamente é uma descrição semelhante ao efetuado na tarefa 1 do presente projeto.
+O arquivo que representa os valores de cada variável está presente em instancias/toy_problem/toy.txt .
 
 Sendo assim, rodando o código utilizando SCIP obtemos os seguintes resultados:
 
+
+Instância | Primal | Dual | Gap | Status | Tempo (s)
+| :-----------: | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: |
+| Toy Problem | +1.69833333333333e+03 | +1.69833333333333e+03 | 0.00 | Solved | 0.038
 
