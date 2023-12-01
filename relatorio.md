@@ -162,90 +162,9 @@ eletrodomésticos](https://aprepro.org.br/conbrepro/2019/anais/arquivos/10192019
 
 ## Tarefa 6 - Toy Problem
 
-A aplicação escolhida para o problema de localização de facilidades foi a determinação de assistências técnicas de uma empresa de eletrodomésticos.  
-Como esta aplicação se trata de um problema
-logístico de uma empresa que entrega produtos para todo o Brasil, cada cidade será identificada como um cliente $j$.  
-Ademais, as possíveis facilidades são todas assistências
-técnicas da empresa, que consistem em mais de 400 unidades.
-A metodologia utilizada para o presente problema é localização de facilidades com capacidade limitada e fonte única. Assim, cada cliente será representado por uma cidade e deve ser
-alocado para exatamente uma facilidade cujas capacidades são limitadas.  
-$J$ é o conjunto dos clientes $j$, ou seja, as cidades as quais a empresa entrega produtos. O índice $i$ representa todos os candidatos a serem escolhidos para serem transformados em assistências técnicas. A representação $D_j$ é a demanda de produtos devolvidos de cada cidade, e $q_i$ a capacidade da assistência técnica $i$.  
-Os custos também devem ser considerados, assim, $c_{ij}$ é o custo relacionado com o transporte dos produtos do cliente $j$ até a assistência técnica $i$, e $f_i$ e $V_i$ são o custo fixo e o custo variável da assistência técnica $i$, respectivamente.  
-A quantidade de facilidades abertas é representada por p, e os parâmetros do modelo são apresentados na Tabela 1.
+A descrição do modelo está descrito na tarefa 5.
+O arquivo que representa os valores de cada variável está presente em toy_problem_instance/toy_problem.txt
+A partir dos dados criados, codificamos o arquivo toy_problem_solver.py que basicamente é uma descrição semelhante ao efetuado na tarefa 1 do presente projeto.
 
-| Parâmetro      | Significado |
-| ----------- | ----------- |
-| $i$     | índices de clientes (cidades)|
-|$j$   | índices de assistências técnicas (AT)|
-| $f_i$     | custo fixo da $AT_i$|
-|$V_i$   | custo variável de manuseio de itens na $AT_i$|
-| $c_ij$     | custo de transporte da $AT_i$ para a cidade $j$|
-|$D_j$   | demanda da cidade $j$|
-| $Q_i$     | capacidade da $AT_j$|
-|$p$   | quantidade de ATs abertas|
-|$M$   | número muito grande|
-Tabela 1 – Parâmetros da aplicação
+Sendo assim, rodando o código utilizando SCIP obtemos os seguintes resultados:
 
-Esse modelo também usa as três variáveis de decisão, duas binárias e uma livre que são as
-seguintes:  
-$y_i$ = { 1 se a assistência i for aberta e 0 caso contrário  
-$x_{ij}$ = { 1 se a assistência i servir a cidade j e 0 caso contrário  
-$q_i$ = capacidade utilizada na assistência i  
-
-O modelo matemático é o seguinte:  
-$ min\ \Sigma_{i=1}^{p}$
-$$
-𝑀𝑖𝑛∑𝑓𝑖
-𝑖∈𝐼
-𝑦𝑖 + ∑𝑉𝑖𝑞𝑖
-𝑖∈𝐼
-+ ∑∑𝑐𝑖𝑗 \\
-𝑗∈𝐽
-𝐷𝑗 𝑥𝑖𝑗
-𝑖∈𝐼 
-(1) \\
-𝑆𝑢𝑗𝑒𝑖𝑡𝑜 à:
-𝑞𝑖 ≤ 𝑄𝑀𝑎𝑥𝑖
-(2)
-∑𝑥𝑖𝑗
-𝑖∈𝐼
-= 1, ∀ 𝑗 ∈ 𝐽, (3)
-∑𝑦𝑖
-𝑖∈𝐼
-= 𝑝, (4)
-∑𝐷𝑗𝑥𝑖𝑗
-𝑗∈𝐽
-= 𝑞𝑖
-, ∀ 𝑖 (5)
-∑𝑥𝑖𝑗
-𝑗∈𝐽
-≤ 𝑀 𝑦𝑖
-, ∀ 𝑖 (6)
-𝑥𝑖𝑗 ∈ 𝐵
-|𝐼||𝐽|
-, 𝑦𝑖 ∈ 𝐵
-|𝐼|
-, 𝑞𝑖 ∈ 𝑅 (7)
-$$
-A função objetivo (1) tem como finalidade minimizar os custos fixos dos centos de
-distribuições, os custos relacionados às atribuições dos clientes até as facilidades e os custos
-variáveis de cada CD.
-A restrição (2) garante que a capacidade utilizada no CD i é menor que
-a capacidade total do CD.
-A restrição (3) garante que cada cliente j é designado a apenas 1
-facilidade.
-E a restrição (4) garante que apenas p facilidades serão escolhidas.
-A restrição (5) informa a capacidade do CD.
-A restrição (6) verifica se o CD i está sendo utilizado. A restrição (7) indica
-os tipos de variáveis.
-
-O modelo deve ser resolvido três vezes, levando em consideração as diferentes quantidades
-de CDs desejados pela empresa para se investir, ou seja, p poderá assumir os valores 3, 4 ou
-5. 
-
-Por fim, obtêm-se quais cidades devem ter seus produtos devolvidos para cada CD e quais
-assistências técnicas devem ser transformadas em CDs.
-
-Referência: [Avaliação de cenários para o problema de localização de facilidades
-determinando centros de distribuição de uma empresa de
-eletrodomésticos](https://aprepro.org.br/conbrepro/2019/anais/arquivos/10192019_191014_5dab8eee2b4dc.pdf)
