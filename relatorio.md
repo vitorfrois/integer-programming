@@ -139,7 +139,7 @@ $min\ \Sigma_{i=1}^n f_i \cdot y_i + \Sigma_{i=1}^n\Sigma_{j=1}^m c_{ij} \cdot x
 
 sujeito à:
 
-$\Sigma_{i=1}^n x_{ij} = 1 \ \ j = 1,..., m\ $  (2) 
+$\Sigma_{i=1}^n x_{ij} = 1 \ \ j = 1,..., m\$  (2) 
 
 $\Sigma_{j=1}^m d_j \cdot x_{ij} \le Cap_i \ \ i = 1, ..., n\ $ 
   (3) 
