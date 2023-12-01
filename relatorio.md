@@ -161,9 +161,9 @@ eletrodomésticos](https://aprepro.org.br/conbrepro/2019/anais/arquivos/10192019
 ## Tarefa 6 - Toy Problem
 
 A descrição do modelo está descrito na tarefa 5.
-O arquivo que representa os valores de cada variável está presente em toy_problem_instance/toy_problem.txt .
-A partir dos dados criados, codificamos o arquivo toy_problem_solver.py que basicamente é uma descrição semelhante ao efetuado na tarefa 1 do presente projeto.
+O arquivo que representa os valores de cada variável está presente em instancias/toy_problem/toy.txt .
 
 Sendo assim, rodando o código utilizando SCIP obtemos os seguintes resultados:
+
 
 
