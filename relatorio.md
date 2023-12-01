@@ -12,6 +12,22 @@ Vitor Amorim Fróis - 12543440
 
 Thaís Ribeiro Lauriano - 12542518 
 
+
+## Introdução 
+Buscamos abordar o problema de localização de facilidades utilizando os solvers SCIP e Gurobi.
+
+### Fórmula do Gap
+Para padronizar o Gap e podermos comparar resultados, vamos utilizar a mesma fórmula para calcular o Gap em todos os solvers
+$$
+\text{Gap} = \dfrac{\text{primal}-\text{dual}}{\text{dual}}
+$$
+
+### Especificações da Máquina
+Para as próximas tarefas vamos rodar as instâncias do problema utilizando máquina local,
+que possui as seguintes especificações:
+- Processador Intel Core i5-9300HF
+- Memória 8GB
+
 ## Tarefa 1
 Para a tarefa 1 utilizamos a linguagem Python em conjunto a biblioteca Pulp. Todo o código para a resolução dos problemas está no arquivo `facilities_solver.py`. Com a ajuda de classes conseguimos ler o arquivo de instâncias, e armazenar o conteúdo em variáveis com a função abaixo:
 ``` python
@@ -109,12 +125,6 @@ A relaxação linear de variáveis binárias em problemas de programação intei
 
 No entanto, é importante notar que a solução relaxada pode não ser uma solução viável para o problema original, pois ela permite valores fracionários para as variáveis binárias, o que pode não fazer sentido do ponto de vista prático. Portanto, após a resolução do problema relaxado, é comum aplicar técnicas adicionais, como arredondamento ou cortes, para obter uma solução inteira que seja mais próxima da solução ótima do problema original.
 
-### Especificações da Máquina
-Para as próximas tarefas vamos rodar as instâncias do problema utilizando máquina local,
-que possui as seguintes especificações:
-- Processador Intel Core i5-9300HF
-- Memória 8GB
-
 ## Tarefa 3
 Resolveremos as instâncias utilizando o solver SCIP
 Instância | Primal | Dual | Gap | Status | Tempo (s)
@@ -178,9 +188,9 @@ $min\ \Sigma_{i=1}^n f_i \cdot y_i + \Sigma_{i=1}^n\Sigma_{j=1}^m c_{ij} \cdot x
 
 sujeito à:
 
-$\Sigma_{i=1}^n x_{ij} = 1 \ \ j = 1,..., m\$  (2) 
+$\Sigma_{i=1}^n x_{ij} = 1 \ \ j = 1,..., m\ $  (2) 
 
-$\Sigma_{j=1}^m d_j \cdot x_{ij} \le Cap_i \cdot y_i \ \ i = 1, ..., n\$ (3) 
+$\Sigma_{j=1}^m d_j \cdot x_{ij} \le Cap_i \cdot y_i \ \ i = 1, ..., n\ $ (3) 
 
 $y_i \in \{0,1\}\ $(5)
 
