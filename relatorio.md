@@ -128,11 +128,19 @@ Instância | Primal | Dual | Gap | Status | Tempo (s)
 | 1 | +6.907967156735e+04 | +6.907775362516e+04 | 0.00002 | Solved |
 | 2 | +7.598617345267e+04 | +7.597516745367e+04 | 0.0001 | Solved |
 | 3 | +1.148574105987e+05 | +1.148174934356e+05 | 0.0003 | Solved |
-| 4 | +1.344714678945e+05 | +1.343745376981e+05 | 0.0007 | Time Limit Exceeded |
+| 4 | +1.344714678945e+05 | +1.343745376981e+05 | 0.0007 | Time Limit Exceeded | 300
 | 5 | +1.618991867905e+05 | +1.617001647389e+05 | 0.001 | Time Limit Exceeded |
 
-Especificações da Máquina de execução:
 
+### Problema relaxado
+Resolveremos as instâncias utilizando o solver SCIP
+Instância | Primal | Dual | Gap | Status | Tempo (s)
+| :-----------: | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: |
+| 1 | 1.28086301e+04 | 1.28086301e+04 | 0 | Solved | 27.21 | 58
+| 2 | 1.40297965e+04 | 1.40297965e+04 | 0 | Solved | 74.4 | 92
+| 3 | 1.81215380e+04 | 1.81215380e+04 | 0 | Solved | 215 | 246
+| 4 | 2.07970848e+04 | 2.07970848e+04 | 0 | Time Limit Exceeded | 358
+| 5 | 2.29732473e+04 | 2.29732141e+04 | 0 | Time Limit Exceeded | 368
 
 ## Tarefa 5 - Aplicação
 
@@ -195,3 +203,19 @@ Sendo assim, rodando o código utilizando SCIP obtemos os seguintes resultados:
 Instância | Primal | Dual | Gap | Status | Tempo (s)
 | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: |
 | Toy Problem | 1.831666666667e+03 | 1.831666666667e+03 | 0.00 | Solved | 0.0193
+
+E obtemos os seguintes valores de variáveis:
+$$
+x_{0,0}=1.0 \\
+x_{0,1}=0.16\overline{6} \\
+x_{0,2}=1.0 \\
+x_{1,0}=0.0 \\
+x_{1,1}=0.83\overline{3} \\
+x_{1,2}=0.0 \\
+x_{2,0}=0.0 \\
+x_{2,1}=0.0 \\
+x_{2,2}=0.0 \\
+y_0=1.0 \\
+y_1=1.0 \\
+y_2=0.0 \\
+$$
