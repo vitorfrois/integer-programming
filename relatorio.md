@@ -195,5 +195,15 @@ Sendo assim, rodando o código utilizando SCIP obtemos os seguintes resultados:
 
 Instância | Primal | Dual | Gap | Status | Tempo (s)
 | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: |
-| Toy Problem | +1.69833333333333e+03 | +1.69833333333333e+03 | 0.00 | Solved | 0.038
+| Toy Problem | 1.831666666667e+03 | 1.831666666667e+03 | 0.00 | Solved | 0.0193
 
+Os resultados para cada varíavel $x_{ij}$ e $y_i$ podem ser observados nas tabelas abaixo:
+
+| X             | 0             | 1             |             2 | 
+| :-----------: | :-----------: | :-----------: | :-----------: |
+| 0             |           1.0 | 0.16666666666666666 | 1.0     |
+| 1             |           0.0 | 0.8333333333333334 | 0.0     |
+| 2             |           0.0 | 0.0 | 0.0     |
+
+
+$y_0 = 1.0$ | $y_1 = 1.0$ | $y_2 = 0.0$ |
