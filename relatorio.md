@@ -137,9 +137,8 @@ Instância | Primal | Dual | Gap | Status | Tempo (s)
 | 5 | +1.618991867905e+05 | +1.617001647389e+05 | 0.001 | Time Limit Exceeded | 334.5
 
 
-
 ### Problema relaxado
-Resolveremos as instâncias utilizando o solver SCIP
+Resolveremos o problema relaxado descrito na tarefa 2 utilizamos o solver Gurobi, obtendo: 
 Instância | Primal | Dual | Gap | Status | Tempo (s)
 | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: |
 | 1 | 1.28086301e+04 | 1.28086301e+04 | 0 | Solved | 27.21 | 58
