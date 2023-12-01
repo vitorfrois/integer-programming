@@ -205,23 +205,8 @@ Instância | Primal | Dual | Gap | Status | Tempo (s)
 | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: |
 | Toy Problem | 1.831666666667e+03 | 1.831666666667e+03 | 0.00 | Solved | 0.0193
 
-<<<<<<< HEAD
 E obtemos os seguintes valores de variáveis:
-$$
-x_{0,0}=1.0 \\
-x_{0,1}=0.16\overline{6} \\
-x_{0,2}=1.0 \\
-x_{1,0}=0.0 \\
-x_{1,1}=0.83\overline{3} \\
-x_{1,2}=0.0 \\
-x_{2,0}=0.0 \\
-x_{2,1}=0.0 \\
-x_{2,2}=0.0 \\
-y_0=1.0 \\
-y_1=1.0 \\
-y_2=0.0 \\
-$$
-=======
+
 Os resultados para cada varíavel $x_{ij}$ e $y_i$ podem ser observados nas tabelas abaixo:
 
 | X             | 0             | 1             |             2 | 
@@ -232,4 +217,3 @@ Os resultados para cada varíavel $x_{ij}$ e $y_i$ podem ser observados nas tabe
 
 
 $y_0 = 1.0$ | $y_1 = 1.0$ | $y_2 = 0.0$ |
->>>>>>> 55408f6090177d4f298a1807f32ca5e24d8ddf31

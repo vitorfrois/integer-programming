@@ -36,15 +36,15 @@ options:
 
 Exemplo de uso:
 
-```python facilities_solver.py -f instancias/ -t 5 -s SCIP_CMD -p 2```
+```python facilities_solver.py -f instancias/trabalho/ -t 5 -s SCIP_CMD -p 2```
 
 
 ### Tarefas
 De acordo com o PDF
-- [ ] Tarefa 1
-- [ ] Tarefa 2
-- [ ] Tarefa 3
-- [ ] Tarefa 4
-- [ ] Tarefa 5
-- [ ] Tarefa 6
+- [x] Tarefa 1
+- [x] Tarefa 2
+- [x] Tarefa 3
+- [x] Tarefa 4
+- [x] Tarefa 5
+- [x] Tarefa 6
 
