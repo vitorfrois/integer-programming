@@ -136,6 +136,8 @@ def main():
 
         problem_info = {
             'Name': file,
+            #for v in prob.variables():
+            'Variables': [str(v.name)+': '+str(v.varValue)+'\n' for v in prob.variables()],
             'Time to Solve': end - start,
             'Minimum cost found': value(prob.objective),
         }
@@ -147,7 +149,8 @@ def main():
             print("Minimum cost found = ", value(prob.objective))
     
     for problem_info in list_problem_info:
-        print(problem_info)
+        for item in problem_info.items():
+            print(item)
 
 
 

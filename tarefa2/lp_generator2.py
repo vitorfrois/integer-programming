@@ -98,18 +98,17 @@ class FacilitiesProblem:
 solver = getSolver('GUROBI_CMD')          
 
 instance = FacilitiesProblem()
-instance.read_problem('../instancias/Adaptada-wlp01.txt')
+instance.read_problem(f'../instancias/Adaptada-wlp0{1}.txt')
 prob = instance.create_minimize_pulp_problem()
-times = []
-for i in range(1):   
-    start_time = time()
-    prob.solve(solver)
-    end_time = time()
-    #print("Status:", LpStatus[prob.status])
-    #for v in prob.variables():
-    #    print(v.name, "=", str(v.varValue))
-    print("Custo mínimo encontrado = ", value(prob.objective))
-    ac_time = end_time - start_time
-    times.append(ac_time)
+times = [] 
+start_time = time()
+prob.solve(solver)
+end_time = time()
+#print("Status:", LpStatus[prob.status])
+#for v in prob.variables():
+#    print(v.name, "=", str(v.varValue))
+print("Custo mínimo encontrado = ", value(prob.objective))
+ac_time = end_time - start_time
+times.append(ac_time)
 
 print("Tempo de execução = ", sum(times)/len(times))
