@@ -125,8 +125,18 @@ A relaxação linear de variáveis binárias em problemas de programação intei
 
 No entanto, é importante notar que a solução relaxada pode não ser uma solução viável para o problema original, pois ela permite valores fracionários para as variáveis binárias, o que pode não fazer sentido do ponto de vista prático. Portanto, após a resolução do problema relaxado, é comum aplicar técnicas adicionais, como arredondamento ou cortes, para obter uma solução inteira que seja mais próxima da solução ótima do problema original.
 
+### Resolução do Problema Relaxado
+Resolveremos o problema relaxado descrito utilizando o solver Gurobi, obtendo: 
+Instância | Primal | Dual | Gap | Status | Tempo (s)
+| :-----------: | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: |
+| 1 | 1.28086301e+04 | 1.28086301e+04 | 0 | Solved | 27.21 | 58
+| 2 | 1.40297965e+04 | 1.40297965e+04 | 0 | Solved | 74.4 | 92
+| 3 | 1.81215380e+04 | 1.81215380e+04 | 0 | Solved | 215 | 246
+| 4 | 2.07970848e+04 | 2.07970848e+04 | 0 | Time Limit Exceeded | 358
+| 5 | 2.29732473e+04 | 2.29732141e+04 | 0 | Time Limit Exceeded | 368
+
 ## Tarefa 3
-Resolveremos as instâncias utilizando o solver SCIP
+Resolveremos as instâncias originais utilizando o solver SCIP
 Instância | Primal | Dual | Gap | Status | Tempo (s)
 | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: |
 | 1 | +6.90925774582678e+04 | +6.90925774582678e+04 | 0 | Solved | 256.0
@@ -137,7 +147,7 @@ Instância | Primal | Dual | Gap | Status | Tempo (s)
 
 
 ## Tarefa 4
-Resolveremos as instâncias utilizando o solver Gurobi
+Resolveremos as instâncias originais utilizando o solver Gurobi
 Instância | Primal | Dual | Gap | Status | Tempo (s)
 | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: |
 | 1 | +6.907967156735e+04 | +6.907775362516e+04 | 0.00002 | Solved | 12.0
@@ -147,15 +157,7 @@ Instância | Primal | Dual | Gap | Status | Tempo (s)
 | 5 | +1.618991867905e+05 | +1.617001647389e+05 | 0.001 | Time Limit Exceeded | 334.5
 
 
-### Problema relaxado
-Resolveremos o problema relaxado descrito na tarefa 2 utilizamos o solver Gurobi, obtendo: 
-Instância | Primal | Dual | Gap | Status | Tempo (s)
-| :-----------: | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: |
-| 1 | 1.28086301e+04 | 1.28086301e+04 | 0 | Solved | 27.21 | 58
-| 2 | 1.40297965e+04 | 1.40297965e+04 | 0 | Solved | 74.4 | 92
-| 3 | 1.81215380e+04 | 1.81215380e+04 | 0 | Solved | 215 | 246
-| 4 | 2.07970848e+04 | 2.07970848e+04 | 0 | Time Limit Exceeded | 358
-| 5 | 2.29732473e+04 | 2.29732141e+04 | 0 | Time Limit Exceeded | 368
+
 
 ## Tarefa 5 - Aplicação
 
