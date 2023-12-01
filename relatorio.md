@@ -175,20 +175,21 @@ Consideraremos 26 cidades e 26 possíveis assistências técnicas (1 por cidade)
 | 7 | Boa Esperança do Sul | 15 | 30 | 50 |
 | 8 | Dobrada | 8 | 20 | 40 |
 | 9 | Matão | 79 | 40 | 120 |
-| 10 | Santa Ernestina | 6 |  | 25 |
+| 10 | Santa Ernestina | 6 | 25 | 25 |
 | 11 | Motuca | 5 | 20 | 20 |
-| 12 | Guatapará | 8 |  | 30 |
-| 13 | Rincão | 11 |  | 35 |
-| 14 | Santa Lúcia | 9 |  | 28 |
+| 12 | Guatapará | 8 | 25 | 30 |
+| 13 | Rincão | 11 | 25 | 35 |
+| 14 | Santa Lúcia | 9 | 20 | 28 |
 | 15 | Américo Brasiliense | 41 |  | 70 |
-| 16 | Araraquara | 238 |  | 290 |
+| 16 | Araraquara | 238 | 90 | 290 |
 | 17 | Ibaté | 35 |  | 60 |
-| 18 | Santa Eudóxia | 3 |  | 15 |
-| 19 | São Simão | 15 |  | 45 |
+| 18 | Santa Eudóxia | 3 | 20 | 15 |
+| 19 | São Simão | 15 | 30 | 45 |
 | 20 | Santa Rita do Passa Quatro | 28 |  | 55 |
 | 21 | Porto Ferreira | 57 | 35 | 75 |
 | 22 | Descalvado | 34 | 30 | 60 |
 | 23 | Dourado | 9 | 20 | 20 |
 | 24 | Pirassununga | 77 | 50 | 100 |
 | 25 | Leme | 104 | 60 | 130 |
-| 26 | Rio Claro | 208 | 90 | 245 |
+| 26 | Rio Claro | 208 | 80 | 245 |
+
