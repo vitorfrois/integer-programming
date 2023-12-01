@@ -104,6 +104,11 @@ foi alterado retirando a necessidade de que Yi assuma valores inteiros, resultan
 y_vars[get_index_string(i)] = LpVariable(f'y_{get_index_string(i)}', 0, 1)
 ```
 
+Para entender por que algumas modificações como a citada no arquivo de descrição do projeto podemos analisar o impacto que uam relaxação linear em variáveis pode causar.
+A relaxação linear de variáveis binárias em problemas de programação inteira, como o problema de localização de facilidades que estamos analisando, é uma técnica comum na otimização. A ideia é substituir as restrições binárias (0 ou 1) por restrições lineares que permitem que as variáveis assumam valores reais entre 0 e 1, se tornando assim uma variável contínua. Essa relaxação torna o problema mais fácil de resolver computacionalmente, pois métodos de otimização linear são geralmente mais eficientes e robustos do que métodos para otimização inteira.
+
+No entanto, é importante notar que a solução relaxada pode não ser uma solução viável para o problema original, pois ela permite valores fracionários para as variáveis binárias, o que pode não fazer sentido do ponto de vista prático. Portanto, após a resolução do problema relaxado, é comum aplicar técnicas adicionais, como arredondamento ou cortes, para obter uma solução inteira que seja mais próxima da solução ótima do problema original.
+
 ### Especificações da Máquina
 Para as próximas tarefas vamos rodar as instâncias do problema utilizando máquina local,
 que possui as seguintes especificações:
