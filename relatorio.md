@@ -18,9 +18,7 @@ Buscamos abordar o problema de localização de facilidades utilizando os solver
 
 ### Fórmula do Gap
 Para padronizar o Gap e podermos comparar resultados, vamos utilizar a mesma fórmula para calcular o Gap em todos os solvers
-$$
-\text{Gap} = \dfrac{\text{primal}-\text{dual}}{\text{dual}}
-$$
+$$\text{Gap} = \dfrac{\text{primal}-\text{dual}}{\text{dual}}$$
 
 ### Especificações da Máquina
 Para as próximas tarefas vamos rodar as instâncias do problema utilizando máquina local,
